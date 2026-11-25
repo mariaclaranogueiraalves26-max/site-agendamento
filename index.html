@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agende seu horário</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Agende seu horário</h1>
+    <p>Escolha o serviço, o dia e um horário livre. Seg a sex, das 9h às 18h; sábado, das 9h às 14h.</p>
+  </header>
+
+  <div class="grid">
+    <main>
+      <section class="card" aria-labelledby="t1">
+        <h2 id="t1">1. Serviço</h2>
+        <div class="services" id="services"></div>
+      </section>
+
+      <section class="card" aria-labelledby="t2">
+        <h2 id="t2">2. Data</h2>
+        <div class="cal-head">
+          <button class="nav" id="prev" aria-label="Mês anterior">‹</button>
+          <strong id="monthLabel"></strong>
+          <button class="nav" id="next" aria-label="Próximo mês">›</button>
+        </div>
+        <div class="cal" id="cal"></div>
+        <p class="legend">Domingos fechados. Ponto vermelho: poucas vagas no dia.</p>
+      </section>
+
+      <section class="card" aria-labelledby="t3">
+        <h2 id="t3">3. Horário</h2>
+        <div class="key" aria-hidden="true"><span><i></i>Livre</span><span><i class="k-busy"></i>Ocupado</span><span><i class="k-mine"></i>Seu horário</span></div>
+        <div id="slots"><p class="hint">Escolha uma data para ver os horários.</p></div>
+        <div id="taken" class="booked-panel" hidden></div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="card" id="summaryCard">
+        <h2>Resumo</h2>
+        <dl>
+          <div><dt>Serviço</dt><dd id="sSvc">—</dd></div>
+          <div><dt>Data</dt><dd id="sDate">—</dd></div>
+          <div><dt>Horário</dt><dd id="sTime">—</dd></div>
+          <div><dt>Valor</dt><dd id="sPrice">—</dd></div>
+        </dl>
+        <label for="name">Nome</label>
+        <input id="name" autocomplete="name">
+        <label for="phone">WhatsApp</label>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(86) 99999-9999">
+        <p class="err" id="err" role="alert"></p>
+        <button class="cta" id="confirm" disabled>Confirmar agendamento</button>
+      </div>
+      <div class="card ok" id="done" hidden>
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>Agendamento confirmado</h2>
+        <p class="hint" id="doneText"></p>
+        <button class="cta" id="again">Fazer novo agendamento</button>
+      </div>
+      <div class="card" id="mineCard" hidden>
+        <h2>Meus agendamentos</h2>
+        <ul class="mine-list" id="mineList"></ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
